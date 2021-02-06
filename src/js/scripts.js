@@ -3,7 +3,6 @@ function newTask() {
     let inputValue = document.getElementById("newTask").value;
     let task = document.createTextNode(inputValue);
     li.appendChild(task);
-
     document.getElementById("tasksList").appendChild(li);
 
     document.getElementById("newTask").value = "";
@@ -35,8 +34,10 @@ document.getElementById("newTask").addEventListener("keyup", validateForm);
 function validateForm() {
     let inputValue = document.getElementById("newTask").value;
     if (inputValue.length < 6) {
-        document.getElementById("newTask").style.background = "red"
+        document.getElementById("newTask").style.background = "red";
+        document.getElementById("createBtn").style.display = "none";
     } else {
-        document.getElementById("newTask").style.background = "green"
+        document.getElementById("newTask").style.background = "green";
+        document.getElementById("createBtn").style.display = "block";
     }
 }
