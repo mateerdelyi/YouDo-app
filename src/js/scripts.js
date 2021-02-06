@@ -3,7 +3,10 @@ function newTask() {
     let inputValue = document.getElementById("newTask").value;
     let task = document.createTextNode(inputValue);
     li.appendChild(task);
+
     document.getElementById("tasksList").appendChild(li);
+
+    document.getElementById("newTask").value = "";
 
     let span = document.createElement("SPAN");
     let txt = document.createTextNode(" \u00D7");
@@ -25,5 +28,15 @@ for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {
         let div = this.parentElement;
         div.style.display = "none";
+    }
+}
+
+document.getElementById("newTask").addEventListener("keyup", validateForm);
+function validateForm() {
+    let inputValue = document.getElementById("newTask").value;
+    if (inputValue.length < 6) {
+        document.getElementById("newTask").style.background = "red"
+    } else {
+        document.getElementById("newTask").style.background = "green"
     }
 }
